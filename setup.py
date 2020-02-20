@@ -26,7 +26,7 @@ setup(
         'Programming Language :: Python :: 3 :: Only',
         'Topic :: Games/Entertainment',
     ],
-    url='https://github.com/llllllllll/slider',
+    url='https://github.com/RuurdBijlsma/slider',
     install_requires=[
         'click',
         'numpy',

@@ -10,7 +10,6 @@ import requests
 from .beatmap import Beatmap
 from .cli import maybe_show_progress
 
-
 if sys.platform.startswith('win'):
     def sanitize_filename(name):
         for invalid_character in r':*?"\/|<>':
@@ -187,10 +186,9 @@ class Library:
 
                 try:
                     beatmap = Beatmap.parse(data.decode('utf-8-sig'))
-                except ValueError as e:
-                    raise ValueError(f'failed to parse {path}') from e
-
-                write_to_db(beatmap, data, path)
+                    write_to_db(beatmap, data, path)
+                except (ValueError, KeyError):
+                    print(f'failed to parse {path}')
 
         return self
 
