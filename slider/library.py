@@ -187,7 +187,7 @@ class Library:
                 try:
                     beatmap = Beatmap.parse(data.decode('utf-8-sig'))
                     write_to_db(beatmap, data, path)
-                except (ValueError, KeyError, StopIteration):
+                except (ValueError, KeyError, StopIteration, OverflowError):
                     print(f'failed to parse {path}')
 
         return self
